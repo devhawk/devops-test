@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 variables:
-  global_variable: Vogon Poetry
+  global_variable: "${{Build.SourceBranch}}"
 
 trigger:
 - master
