@@ -6,6 +6,7 @@
 variables:
   isMasterBranch: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
   isReleaseBranch: $[startsWith(variables['Build.SourceBranch'], 'refs/heads/release/')]
+  isMasterOrReleaseBranch: $[or(eq(variables.isMasterBranch, true), eq(variables.isReleaseBranch, true))]
 
 trigger:
 - master
@@ -16,10 +17,10 @@ pool:
 steps:
 - bash: echo $(isMasterBranch)
 - bash: echo $(isReleaseBranch)
-
+- bash: echo $(isMasterOrReleaseBranch)
 
 - task: PowerShell@2
-  condition: eq(variables.isMasterBranch, true)
+  condition: eq(variables.isMasterOrReleaseBranch, true)
   inputs:
     targetType: 'inline'
     script: |
