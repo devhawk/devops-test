@@ -11,17 +11,24 @@ pool:
 
 steps:
 
-- task: UseDotNet@2
-  inputs:
-    packageType: 'sdk'
-    useGlobalJson: true
+# - task: UseDotNet@2
+#   inputs:
+#     packageType: 'sdk'
+#     useGlobalJson: true
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'pack'
-    packagesToPack: '**/*.csproj'
-    includesymbols: true
-    versioningScheme: 'off'
+# - task: DotNetCoreCLI@2
+#   inputs:
+#     command: 'pack'
+#     packagesToPack: '**/*.csproj'
+#     includesymbols: true
+#     versioningScheme: 'off'
 
-- publish: '$(Build.ArtifactStagingDirectory)'
-  name: package
+# - publish: '$(Build.ArtifactStagingDirectory)'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      
+      Write-Host "Hello World"
