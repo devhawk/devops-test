@@ -4,7 +4,8 @@
 # https://aka.ms/yaml
 
 variables:
-  isMasterBranch: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')] 
+  isMasterBranch: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
+  isReleaseBranch: $[startsWith(variables['Build.SourceBranch'], 'refs/heads/release/)]'
 
 trigger:
 - master
@@ -14,6 +15,7 @@ pool:
 
 steps:
 - bash: echo $(isMasterBranch)
+- bash: echo $(isReleaseBranch)
 
 # - task: UseDotNet@2
 #   inputs:
