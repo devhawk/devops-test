@@ -5,7 +5,7 @@
 
 variables:
   isMasterBranch: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
-  isReleaseBranch: $[startsWith(variables['Build.SourceBranch'], 'refs/heads/release/)]'
+  isReleaseBranch: $[startsWith(variables['Build.SourceBranch'], 'refs/heads/release/')]
 
 trigger:
 - master
