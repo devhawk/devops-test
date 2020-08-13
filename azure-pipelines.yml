@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 variables:
-  global_variable: "$[Build.SourceBranch]"
+  isMasterBranch: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')] 
 
 trigger:
 - master
@@ -13,7 +13,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- bash: echo $(global_variable)
+- bash: echo $(isMasterBranch)
 
 # - task: UseDotNet@2
 #   inputs:
