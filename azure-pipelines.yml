@@ -10,6 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- bash: echo $(one) ## works
 
 # - task: UseDotNet@2
 #   inputs:
@@ -25,11 +26,12 @@ steps:
 
 # - publish: '$(Build.ArtifactStagingDirectory)'
 
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: |
-      # Write your PowerShell commands here.
+# - task: PowerShell@2
+#   inputs:
+#     targetType: 'inline'
+#     script: |
+#       # Write your PowerShell commands here.
       
-      Write-Host "${{Build.SourceBranch}}"
-    pwsh: true
+#       Write-Host "${{Build.SourceBranch}}"
+#     pwsh: true
+
